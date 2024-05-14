@@ -1,7 +1,7 @@
 package com.example.jetpet2.home
 
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
@@ -11,14 +11,15 @@ import com.example.jetpet2.data.DummyPetDataSource
 
 @Composable
 fun Home(
-    
+    onSwitchClick:() -> Unit,
+    onPetClick:(Int) -> Unit
 ) {
     val petList = DummyPetDataSource.dogList
 
     Scaffold(
         topBar = {
             TopBar {
-
+                onSwitchClick()
             }
         }
     ) {
@@ -26,8 +27,9 @@ fun Home(
         LazyColumn(
             contentPadding = PaddingValues
         ) {
-            items(petList){pet ->
+            itemsIndexed(petList){index,pet ->
                 PetInfoItem(pet = pet ) {
+                    onPetClick(index)
                 }
             }
         }
@@ -38,5 +40,7 @@ fun Home(
 @Preview(showSystemUi = true)
 @Composable
 private fun HomePreview() {
-    Home()
+    Home(onSwitchClick = {}){
+
+    }
 }
