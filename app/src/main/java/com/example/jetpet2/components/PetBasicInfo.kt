@@ -64,6 +64,28 @@ fun PetBasicInfoItem(
                     style = MaterialTheme.typography.bodySmall
                 )
             }
+            Spacer(modifier = Modifier .height(12.dp))
+
+            Text(
+                text = "Adoptable",
+                modifier = Modifier
+                    .padding(0.dp,0.dp,12.dp,0.dp),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelSmall
+            )
+        }
+        Column(
+            modifier = Modifier
+                .height(80.dp),
+            verticalArrangement = Arrangement.SpaceBetween,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            GenderTag(gender = gender, modifier = Modifier )
+            Text(
+                text = "Dog",
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelMedium
+            )
         }
     }
 }

@@ -148,6 +148,8 @@ fun GenderTag(gender: String, modifier: Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 private fun PetInfoItemPreview() {
+    GenderTag(gender = "22", modifier = Modifier )
+
     val petItem = DummyPetDataSource.dogList.random()
     PetInfoItem(petItem){
 

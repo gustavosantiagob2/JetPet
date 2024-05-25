@@ -66,9 +66,9 @@ fun TopBar(onSwitchToggle: () -> Unit) {
 @Composable
 fun PetSwitch(onSwitchToggle: () -> Unit) {
     val icon = if (isSystemInDarkTheme()){
-        painterResource(id = R.drawable.ic_switch_on)
+        painterResource(id = R.drawable.ic_light)
     }else{
-        painterResource(id = R.drawable.ic_switch_off
+        painterResource(id = R.drawable.ic_dark
         )
     }
 

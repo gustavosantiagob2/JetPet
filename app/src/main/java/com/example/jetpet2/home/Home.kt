@@ -9,38 +9,35 @@ import com.example.jetpet2.components.PetInfoItem
 import com.example.jetpet2.components.TopBar
 import com.example.jetpet2.data.DummyPetDataSource
 
+
 @Composable
 fun Home(
-    onSwitchClick:() -> Unit,
-    onPetClick:(Int) -> Unit
-) {
+    onSwitchClick: () -> Unit,
+    onPetClick: (Int) -> Unit
+){
     val petList = DummyPetDataSource.dogList
-
     Scaffold(
         topBar = {
-            TopBar {
-                onSwitchClick()
+             TopBar {
+                 onSwitchClick()
             }
-        }
-    ) {
-            PaddingValues ->
-        LazyColumn(
-            contentPadding = PaddingValues
-        ) {
-            itemsIndexed(petList){index,pet ->
-                PetInfoItem(pet = pet ) {
+    }
+    ) { innerPadding ->
+        LazyColumn(contentPadding = innerPadding) {
+            itemsIndexed(petList){
+                    index,pet ->
+                PetInfoItem(pet = pet) {
                     onPetClick(index)
                 }
             }
         }
     }
-
 }
 
-@Preview(showSystemUi = true)
+@Preview
 @Composable
 private fun HomePreview() {
-    Home(onSwitchClick = {}){
-
-    }
+        Home(onSwitchClick = {}) {
+            
+        }
 }
